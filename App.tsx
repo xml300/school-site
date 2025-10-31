@@ -1,20 +1,21 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import AcademicsPage from './pages/AcademicsPage';
-import AdmissionsPage from './pages/AdmissionsPage';
-import StudentLifePage from './pages/StudentLifePage';
-import NewsPage from './pages/NewsPage';
-import StaffDirectoryPage from './pages/StaffDirectoryPage';
-import ScrollToTop from './components/ScrollToTop';
-import BackToTopButton from './components/BackToTopButton';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './src/components/Header';
+import Footer from './src/components/Footer';
+import HomePage from './src/pages/HomePage';
+import AboutPage from './src/pages/AboutPage';
+import AcademicsPage from './src/pages/AcademicsPage';
+import AdmissionsPage from './src/pages/AdmissionsPage';
+import StudentLifePage from './src/pages/StudentLifePage';
+import NewsPage from './src/pages/NewsPage';
+import StaffDirectoryPage from './src/pages/StaffDirectoryPage';
+import NotFoundPage from './src/pages/NotFoundPage';
+import ScrollToTop from './src/components/ScrollToTop';
+import BackToTopButton from './src/components/BackToTopButton';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header />
@@ -27,12 +28,13 @@ function App() {
             <Route path="/student-life" element={<StudentLifePage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/staff" element={<StaffDirectoryPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
         <BackToTopButton />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
